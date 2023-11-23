@@ -2,7 +2,6 @@ import random
 class UserChecking:
     def __init__(self, list_info): # [năm sinh, quê quan, cau hoi bao mat1, dap an1, cauhoi2, dapan2, cauhoi3, dapan3]
         self.list_info = list_info
-        self.list_info = list_info
         self.province_check = [
             "Hà Nội",
             "Hồ Chí Minh",
@@ -68,23 +67,23 @@ class UserChecking:
             "Yên Bái",
         ]
         self.fakeprovince = random.choice(self.province_check)
-        if self.fakeprovince == list_info[1]: # creat anwser for yes no question
-            self.list_info[1] = "đúng"
-        else:
-            self.list_info[1] = "sai"
-
-        self.fakeborn = str( list_info[0] + random.randint(-3, 3))
-        if self.fakeborn == list_info[0]: # creat anwser for yes no question
+        if self.fakeprovince == list_info[0]: # creat anwser for yes no question
             self.list_info[0] = "đúng"
         else:
             self.list_info[0] = "sai"
+
+        #self.fakeborn = str( list_info[0] + random.randint(-3, 3))
+        # if self.fakeborn == list_info[0]: # creat anwser for yes no question
+        #     self.list_info[0] = "đúng"
+        # else:
+        #     self.list_info[0] = "sai"
         # type =1: yes no question, type =0  ling quest
         self.fences = [
-            {
-                'question' : "Bạn sinh năm:  " +  self.fakeborn,
-                'anwser'   : self.list_info.pop(0),
-                'type'     : 1,
-            },
+            # {
+            #     'question' : "Bạn sinh năm:  " +  self.fakeborn,
+            #     'anwser'   : self.list_info.pop(0),
+            #     'type'     : 1,
+            # },
             {
                 'question' : "Quê bạn ở " + self.fakeprovince,
                 'anwser'   : self.list_info.pop(0),

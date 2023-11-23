@@ -9,14 +9,13 @@ import time
 
 if __name__ == '__main__':
     # id = com_serial.atp_seial('COM3', 9600)
-    data = get_data.get_data(5)
-
-    # person1 = uC.UserChecking(list_info=[2002, "Thái Bình", "q1", "a1", "q2", "a2", "q3", "a3"])
-    # fence = person1.chosen_fence
-    # print(fence['question'])
-    #
-    #
-    # stt_tts.text_to_speech('Hãy trả lời đúng hoặc sai')
+    data = get_data.get_data(4)
+    list_info = data[2:9]
+    person1 = uC.UserChecking(list_info)
+    fence = person1.chosen_fence
+    print(fence)
+    stt_tts.text_to_speech('Hãy trả lời đúng hoặc sai')
+    stt_tts.text_to_speech(fence['question'])
     #
     # stt_tts.text_to_speech('alo')
     # answer = stt_tts.speech_to_text()
