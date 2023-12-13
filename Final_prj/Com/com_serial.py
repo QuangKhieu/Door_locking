@@ -21,7 +21,7 @@ def pta_serial(com, baudrate): #pc to computer
     ser = serial.Serial(com, baudrate)
     ser.flush()
     i = 0
-    while i < 10:
+    while i < 20:
         string = '1\n'
         ser.write(bytes(string, 'utf-8'))
         time.sleep(0.05)
@@ -30,4 +30,9 @@ def pta_serial(com, baudrate): #pc to computer
         #     data = ser.readline()
         #     print(data.decode('utf-8').strip())
 
+    ser.close()
+
+def reset():
+    ser = serial.Serial('COM3', 9600)
+    time.sleep(1)
     ser.close()

@@ -22,16 +22,19 @@ def text_to_speech(text):
 def speech_to_text(max_listen_time=5):
     recognizer = sr.Recognizer()
     microphone = sr.Microphone()
+    temp = 0;
+    while True:
 
-    with microphone as source:
-        print("Hãy nói gì đó...")
-        recognizer.adjust_for_ambient_noise(source)
-        audio = recognizer.listen(source, timeout=max_listen_time)
+        with microphone as source:
+            print("Hãy nói gì đó...")
+            recognizer.adjust_for_ambient_noise(source)
+            audio = recognizer.listen(source, timeout=max_listen_time)
 
-    try:
-        text = recognizer.recognize_google(audio, language="vi-VN")
-        return text
-    except sr.UnknownValueError:
-        return "Không nhận dạng được giọng nói."
-    except sr.RequestError as e:
-        return f"Lỗi trong quá trình gửi yêu cầu: {str(e)}"
+        try:
+            text = recognizer.recognize_google(audio, language="vi-VN")
+            return text
+        except sr.UnknownValueError:
+            if temp >= 5:
+                return "Không nhận dạng được giọng nói."
+        except sr.RequestError as e:
+            return f"Lỗi trong quá trình gửi yêu cầu: {str(e)}"

@@ -1,4 +1,5 @@
 import random
+import unidecode
 class UserChecking:
     def __init__(self, list_info): # [năm sinh, quê quan, cau hoi bao mat1, dap an1, cauhoi2, dapan2, cauhoi3, dapan3]
         self.list_info = list_info
@@ -68,9 +69,9 @@ class UserChecking:
         ]
         self.fakeprovince = random.choice(self.province_check)
         if self.fakeprovince == list_info[0]: # creat anwser for yes no question
-            self.list_info[0] = "đúng"
+            self.list_info[0] = "chinh xac"
         else:
-            self.list_info[0] = "sai"
+            self.list_info[0] = "khong dung"
 
         #self.fakeborn = str( list_info[0] + random.randint(-3, 3))
         # if self.fakeborn == list_info[0]: # creat anwser for yes no question
@@ -86,23 +87,23 @@ class UserChecking:
             # },
             {
                 'question' : "Quê bạn ở " + self.fakeprovince,
-                'anwser'   : self.list_info.pop(0),
+                'anwser'   : self.list_info.pop(0).lower(),
                 'type'     : 1,
             },
             # 3 câu hỏi bảo mật
             {
-                'question' : self.list_info.pop(0),
-                'anwser'   : self.list_info.pop(0),
+                'question' : self.list_info.pop(0).lower(),
+                'anwser'   : self.list_info.pop(0).lower(),
                 'type'     : 0,
             },
             {
-                'question': self.list_info.pop(0),
-                'anwser':   self.list_info.pop(0),
+                'question': self.list_info.pop(0).lower(),
+                'anwser':   self.list_info.pop(0).lower(),
                 'type'   : 0,
             },
             {
-                'question': self.list_info.pop(0),
-                'anwser':   self.list_info.pop(0),
+                'question': self.list_info.pop(0).lower(),
+                'anwser':   self.list_info.pop(0).lower(),
                 'type' : 0
             },
 
@@ -123,6 +124,17 @@ class UserChecking:
                 return 1
             else:
                 return 0
+    def checkk(self, text):
+        text = set(list(unidecode.unidecode(text.lower())))
+        ref_text = set(list(unidecode.unidecode(self.chosen_fence['anwser'])))
+        check = self.jaccard_similarity(text, ref_text)
+        return check
+
+    def jaccard_similarity(self, set1, set2):
+        intersection = len(set1.intersection(set2))
+        union = len(set1.union(set2))
+        similarity = intersection / union if union != 0 else 0  # Tránh chia cho 0
+        return similarity
 
 #list_infor = []
 # person1 = UserChecking(list_info = [2002,"Thái Bình", "q1", "a1", "q2", "a2", "q3", "a3"])

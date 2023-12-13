@@ -4,26 +4,30 @@ from STT_TTS import stt_tts
 import  user_Checking as uC
 import time
 
-
-
-
 if __name__ == '__main__':
-    # id = com_serial.atp_seial('COM3', 9600)
-    data = get_data.get_data(4)
+    id = com_serial.atp_seial('COM3', 9600)
+    print(id)
+    # id = 3
+    data = get_data.get_data(int(id))
+    print(data)
     list_info = data[2:9]
     person1 = uC.UserChecking(list_info)
     fence = person1.chosen_fence
     print(fence)
-    stt_tts.text_to_speech('Hãy trả lời đúng hoặc sai')
+    stt_tts.text_to_speech('Hãy trả lời')
     stt_tts.text_to_speech(fence['question'])
-    #
-    # stt_tts.text_to_speech('alo')
-    # answer = stt_tts.speech_to_text()
-    # print(answer.lower())
-    # print(person1.check(answer.lower()))
-
-    # id = com_serial.atp_seial('COM3', 9600)
-    # com_serial.pta_serial('COM3', 9600)
+    # # #
+    # # #
+    answer = stt_tts.speech_to_text()
+    check = person1.checkk(answer)
+    print(answer)
+    if check >= 0.5:
+        com_serial.pta_serial("COM3", 9600)
+    #     print("yes")
+    # print(check)
+    # com_serial.pta_serial("COM3", 9600)
+    # time.sleep(2)
+    #com_serial.pta_serial("COM3", 9600)
 
 
 
