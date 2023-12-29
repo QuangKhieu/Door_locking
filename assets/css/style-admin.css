@@ -140,5 +140,30 @@ body {
   border: solid 2px var(--color-primary);
 }
 
+@media (max-width: 576px){
+  .header .inner-box{
+    display: none;
+  }
+
+  .header .inner-body table{
+    font-size: 10px;
+  }
+
+  .header .inner-section-one{
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 900px){
+  .header .inner-box{
+    display: none;
+  }
+
+  .header .inner-user {
+    text-align: end;
+  }
+
+}
+
 
 

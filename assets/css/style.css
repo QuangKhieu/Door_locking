@@ -187,3 +187,61 @@ button.btn.btn-primary.button-second:hover {
   background: var(--color-primary);
   color: white;
 }
+
+@media (max-width: 576px){
+  .header .inner-team {
+    padding-left: 15px;
+  } 
+
+  .header .inner-title{
+    font-size: 13px;
+    padding: 0 28px;
+  }
+
+  .header .inner-box-login {
+    margin-bottom: 0px;
+    margin-top: 20px;
+  }
+
+  .header .inner-wrap{
+    margin-bottom: 0px;
+  }
+
+  .header .inner-about{
+    display: none;
+  }
+
+  .section-one .inner-main{
+    padding: 0px;
+  }
+
+  .section-one .inner-title{
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .section-one .inner-desc {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .section-one .inner-social a{
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .section-one img{
+    margin-top: 65px;
+  }
+
+  .modal-content{
+    margin-right: 25px;
+    margin-left: 10px;
+  }
+/* 
+  .button-second{
+    padding: 5px 10px;
+  } */
+
+}

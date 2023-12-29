@@ -26,18 +26,18 @@
 
     <div class="container">
       <div class=" inner-wrap row">
-        <div class="inner-logo col-xl-4">
+        <div class="inner-logo col-xl-4 col-6">
           <span class="inner-icon"><i class="fa-solid fa-fingerprint"></i></span>
           <span class="inner-name">Fingerprint</span>
         </div>
 
-        <div class="inner-team col-xl-4">
+        <div class="inner-team col-xl-4 col-6">
           <img src="assets/images/logouet.png" alt="">
           <a href="#" class="inner-name">Group 14</a>
         </div>
 
-        <div class="inner-box-login col-xl-2">
-          <a href="#" type="button" class="inner-login button" data-toggle="modal" data-target="#exampleModal">Login</a>
+        <div class="inner-box-login col-xl-2 text-center">
+          <a href="#" type="button" class="inner-login button col-12" data-toggle="modal" data-target="#exampleModal">Login</a>
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
 

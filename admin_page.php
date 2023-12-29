@@ -35,7 +35,7 @@
     </div>
     <div class="inner-body col-10">
       <div class="inner-section-one row">
-        <div class="inner-name col-10">Admin Page</div>
+        <div class="inner-name col-xl-10 col-8">Admin Page</div>
         <div class="inner-user col-2">
           <img src="assets/images/fourteen.png" alt="" style="background-color: #EFD161;">
           <span class="admin">Admin</span>
@@ -72,7 +72,7 @@
 
       $conn = new mysqli($servername, $username, $password, $dbname);
 
-      if ($conn->connect_error) {
+      if ($conn->connect_error) { // nếu kết nối thất bại
         die("Kết nối đến MySQL thất bại: " . $conn->connect_error);
       }
 
